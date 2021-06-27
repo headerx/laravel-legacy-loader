@@ -23,7 +23,7 @@ class TestCase extends Orchestra
     {
         config()->set('app.env', 'testing');
         config()->set('app.key', 'base64:a5yFRDmbt09LYMeNJGDeLd+wOfdrQ0NK7BNSLzMaVRk=');
-        if (!file_exists('vendor/orchestra/testbench-core/laravel/resources/legacy')) {
+        if (! file_exists('vendor/orchestra/testbench-core/laravel/resources/legacy')) {
             mkdir('vendor/orchestra/testbench-core/laravel/resources/legacy', 0777, true);
         }
         copy(

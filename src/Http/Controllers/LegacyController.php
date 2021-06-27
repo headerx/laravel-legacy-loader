@@ -7,7 +7,6 @@ use Illuminate\Http\Response;
 
 class LegacyController
 {
-
     /**
      * Handle the incoming request.
      *
@@ -16,7 +15,6 @@ class LegacyController
      */
     public function __invoke(Request $request, $file)
     {
-
         $query_string = '';
 
         if (count(explode('?', $request->fullUrl())) > 1) {
@@ -26,13 +24,13 @@ class LegacyController
 
         $file = base_path(config('legacy-loader.file_path') . $this->getCleanPath($request->path()));
 
-        if (!str_contains($request->path(), '.php')) {
-
+        if (! str_contains($request->path(), '.php')) {
             $file = str_replace(['.html', '.php', '.txt'], '', $file) . '.php';
         }
         if (file_exists($file)) {
             ob_start();
             require_once($file);
+
             return new Response(ob_get_clean());
         }
 
@@ -44,6 +42,6 @@ class LegacyController
 
     protected function getCleanPath(string $path)
     {
-        return str_replace(config('legacy-loader.route_prefix'),'',$path);
+        return str_replace(config('legacy-loader.route_prefix'), '', $path);
     }
 }
