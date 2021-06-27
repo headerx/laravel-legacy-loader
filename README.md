@@ -1,4 +1,4 @@
-# Load legacy scripts inside your laravel app.
+# Load legacy php scripts inside your laravel app.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/headerx/laravel-legacy-loader.svg?style=flat-square)](https://packagist.org/packages/headerx/laravel-legacy-loader)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/headerx/laravel-legacy-loader/run-tests?label=tests)](https://github.com/headerx/laravel-legacy-loader/actions?query=workflow%3Arun-tests+branch%3Amain)
