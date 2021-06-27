@@ -14,7 +14,7 @@ composer require headerx/laravel-legacy-loader
 ```
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="HeaderX\LegacyLoader\LegacyLoaderServiceProvider" --tag="laravel-legacy-loader-config"
+php artisan vendor:publish --provider="HeaderX\LegacyLoader\LegacyLoaderServiceProvider" --tag="legacy-loader-config"
 ```
 
 This is the contents of the published config file:
