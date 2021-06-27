@@ -1,36 +1,38 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace HeaderX\LegacyLoader\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use HeaderX\LegacyLoader\LegacyLoaderServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
 
 class TestCase extends Orchestra
 {
     public function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            LegacyLoaderServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'testing');
-
-        /*
-        include_once __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        config()->set('app.env', 'testing');
+        config()->set('app.key', 'base64:a5yFRDmbt09LYMeNJGDeLd+wOfdrQ0NK7BNSLzMaVRk=');
+        if (!file_exists('vendor/orchestra/testbench-core/laravel/resources/legacy')) {
+            mkdir('vendor/orchestra/testbench-core/laravel/resources/legacy', 0777, true);
+        }
+        copy(
+            __DIR__ . '/../resources/legacy/hello_world.php',
+            __DIR__ . '/../vendor/orchestra/testbench-core/laravel/resources/legacy/hello_world.php'
+        );
+        copy(
+            __DIR__ . '/../resources/legacy/query_string.php',
+            __DIR__ . '/../vendor/orchestra/testbench-core/laravel/resources/legacy/query_string.php'
+        );
     }
 }
