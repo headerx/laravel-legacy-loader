@@ -5,26 +5,6 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/headerx/laravel-legacy-loader/Check%20&%20fix%20styling?label=code%20style)](https://github.com/headerx/laravel-legacy-loader/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/headerx/laravel-legacy-loader.svg?style=flat-square)](https://packagist.org/packages/headerx/laravel-legacy-loader)
 
----
-This repo can be used as to scaffold a Laravel package. Follow these steps to get started:
-
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this laravel-legacy-loader
-2. Run "./configure-laravel-legacy-loader.sh" to run a script that will replace all placeholders throughout all the files
-3. Remove this block of text.
-4. Have fun creating your package.
-5. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-legacy-loader.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-legacy-loader)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
 You can install the package via composer:
@@ -32,14 +12,6 @@ You can install the package via composer:
 ```bash
 composer require headerx/laravel-legacy-loader
 ```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="HeaderX\LegacyLoader\LegacyLoaderServiceProvider" --tag="laravel-legacy-loader-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="HeaderX\LegacyLoader\LegacyLoaderServiceProvider" --tag="laravel-legacy-loader-config"
@@ -49,15 +21,25 @@ This is the contents of the published config file:
 
 ```php
 return [
-];
+    'route_prefix' => env('LEGACY_ROUTE_PREFIX', 'legacy'),
+    /**
+     * Path to legacy php scripts
+     * relative to base_path()
+     */
+    'file_path' => env('LEGACY_FILE_PATH', 'resources/legacy'),
+    /**
+     * If your legacy app has its own
+     * authentication you will need
+     * to publish config and add
+     * your own middleware.
+     */
+    'middleware' => [
+        'web',
+        // 'auth',
+    ],
 ```
 
-## Usage
 
-```php
-$laravel-legacy-loader = new HeaderX\LegacyLoader();
-echo $laravel-legacy-loader->echoPhrase('Hello, Spatie!');
-```
 
 ## Testing
 
