@@ -23,7 +23,7 @@ This is the contents of the published config file:
 return [
     /**
     * Route prefix under which the php files are to be 
-    * accesses. Additional routes are not needed,
+    * accessed. Additional routes are not needed,
     * files will be accessible via thier path.
     */
     'route_prefix' => env('LEGACY_ROUTE_PREFIX', 'legacy'),
