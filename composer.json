@@ -1,6 +1,6 @@
 {
     "name": "headerx/laravel-legacy-loader",
-    "description": "Load legacy scripts inside your laravel app.",
+    "description": "Load vanilla php scripts inside your laravel app.",
     "keywords": [
         "headerx",
         "laravel",
