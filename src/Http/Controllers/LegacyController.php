@@ -24,14 +24,14 @@ class LegacyController
 
         $file = base_path(config('legacy-loader.file_path') . $this->getCleanPath($request->path()));
 
-        if (!str_contains($request->path(), '.php')) {
+        if (! str_contains($request->path(), '.php')) {
             $file = str_replace(['.html', '.php', '.txt'], '', $file) . '.php';
         }
         if (file_exists($file)) {
             // ob_start();
             require_once($file);
 
-            // return new Response(ob_get_clean());
+        // return new Response(ob_get_clean());
         } else {
 
             /**
