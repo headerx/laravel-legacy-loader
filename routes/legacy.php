@@ -5,4 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::any(config('legacy-loader.route_prefix') . '/{path}', LegacyController::class)
     ->where('path', '(.*)')
-    ->middleware(config('legacy-loader.middleware'));
+    ->middleware(config('legacy-loader.middleware'))
+    ->name('legacy');
