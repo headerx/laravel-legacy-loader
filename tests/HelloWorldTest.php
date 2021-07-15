@@ -10,6 +10,6 @@ class HelloWorldTest extends TestCase
         // $this->withoutExceptionHandling();
         $response = $this->get(config('legacy-loader.route_prefix').'/hello_world.php');
 
-        $response->assertSee('Hello World');
+        $response->assertOk();
     }
 }
