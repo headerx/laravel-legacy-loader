@@ -4,7 +4,7 @@ namespace HeaderX\LegacyLoader\Tests;
 
 class HelloWorldTest extends TestCase
 {
-    /** @test */
+
     public function it_echoes_hello_world()
     {
         // $this->withoutExceptionHandling();
