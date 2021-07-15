@@ -9,6 +9,6 @@ class QueryStringTest extends TestCase
     {
         $response = $this->get(config('legacy-loader.route_prefix').'/query_string.php?hello_world=Hello World');
 
-        $response->assertSee('Hello World');
+        $response->assertOk();
     }
 }

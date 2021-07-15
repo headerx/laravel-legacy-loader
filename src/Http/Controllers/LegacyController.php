@@ -22,7 +22,7 @@ class LegacyController
         }
         parse_str($query_string, $_GET);
 
-        $file = base_path(config('legacy-loader.file_path') . $this->getCleanPath($request->path()));
+        $file = base_path(config('legacy-loader.file_path') . DIRECTORY_SEPARATOR . $this->getCleanPath($request->path()));
 
         if (! str_contains($request->path(), '.php')) {
             $file = str_replace(['.html', '.php', '.txt'], '', $file) . '.php';
