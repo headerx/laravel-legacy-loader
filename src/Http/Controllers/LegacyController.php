@@ -31,7 +31,7 @@ class LegacyController
             // ob_start();
             require_once($file);
 
-        // return new Response(ob_get_clean());
+            // return new Response(ob_get_clean());
         } else {
 
             /**
